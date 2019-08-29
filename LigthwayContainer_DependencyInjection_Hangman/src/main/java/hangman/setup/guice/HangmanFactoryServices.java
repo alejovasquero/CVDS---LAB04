@@ -16,6 +16,7 @@ import hangman.model.dictionary.HangmanDictionary;
 import hangman.model.dictionary.FrenchDictionaryDataSource;
 import hangman.view.HangmanNoviolentoPanel;
 import hangman.view.HangmanPanel;
+import hangman.setup.factoryMethod.*;
 
 public class HangmanFactoryServices extends com.google.inject.AbstractModule {
 
@@ -23,6 +24,7 @@ public class HangmanFactoryServices extends com.google.inject.AbstractModule {
     protected void configure() {
         /* Guice dependency injection */
         // bind(Interface.class).to(Concrete.class);
+		bind(HangmanFactoryMethod.class).to(HangmanDefaultFactoryMethod.class);
     }
 
 }
