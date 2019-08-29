@@ -7,9 +7,17 @@ public class OriginalScore implements GameScore{
 	 * @pos El puntaje es 10 veces el número de letras correctas. El puntaje mínimo es 0.
 	 * @param correctCount Número de letras correctas de la palabra
 	 * @param incorrectCount Número de letras incorrectas de la palabra
-	 * @throws GameScoreException Si cualquiera de los dos números es negativo
+	 * @throws GameScoreExcepcion Si cualquiera de los dos números es negativo
 	**/
-	public int calculateScore(int correctCount, int incorrectCount){
-		return 0;
+	public int calculateScore(int correctCount, int incorrectCount) throws GameScoreExcepcion{
+		if(correctCount<0 || incorrectCount <0){
+			throw new GameScoreExcepcion(GameScoreExcepcion.INVALID);
+		}
+		int score = 100;
+		if(score-(10*incorrectCount)<0){score=0;}
+		else{
+			score = score-(10*incorrectCount);
+		}
+		return score;
 	}
 }

@@ -1,8 +1,9 @@
 
-package hangman;
+package hangman.model;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 /**
  * Vamos a definir 4 clases de equivalencia:
  * 1) Excepción cada vez que se manden parámetros negativos para cada una de las 3 clases de calculo:
@@ -23,30 +24,30 @@ import org.junit.Test;
  */
 public class GameScoreTest{
 
-	@test
+	@Test
 	public void deberiaDarExcepcion(){
 		GameScore a;
 		try{
 			a = new OriginalScore();
-			a.calculateScore(-1,-1)
+			a.calculateScore(-1,-1);
 		} catch(GameScoreExcepcion e){
-			Assert.assertTrue(true)
+			Assert.assertTrue(true);
 		}
 		try{
 			a = new BonusScore();
-			a.calculateScore(-1,0)
+			a.calculateScore(-1,0);
 		} catch(GameScoreExcepcion e){
-			Assert.assertTrue(true)
+			Assert.assertTrue(true);
 		}
 		try{
 			a = new PowerScore();
-			a.calculateScore(0,-1)
+			a.calculateScore(0,-1);
 		} catch(GameScoreExcepcion e){
-			Assert.assertTrue(true)
+			Assert.assertTrue(true);
 		}
 	}
-	@test
-	public void deberiaSerPuntajeMinimo(){
+	@Test
+	public void deberiaSerPuntajeMinimo() throws GameScoreExcepcion{
 		GameScore a;
 		a = new OriginalScore();
 		Assert.assertEquals(a.calculateScore(0,11),0);
@@ -67,15 +68,15 @@ public class GameScoreTest{
 	
 	
 	
-	@test
-	public void originalScoreDeberiaDarInicio(){
+	@Test
+	public void originalScoreDeberiaDarInicio()  throws GameScoreExcepcion{
 		GameScore a;
 		a = new OriginalScore();
 		Assert.assertEquals(a.calculateScore(0,0),100);
 	}
 	
-	@test 
-	public void originalDeberiaCalcularBien(){
+	@Test 
+	public void originalDeberiaCalcularBien()  throws GameScoreExcepcion{
 		GameScore a;
 		a = new OriginalScore();
 		int b = a.calculateScore(1,0);
@@ -89,17 +90,17 @@ public class GameScoreTest{
 	
 	
 	
-	@test
-	public void bonusScoreDeberiaDarInicio(){
+	@Test
+	public void bonusScoreDeberiaDarInicio()  throws GameScoreExcepcion{
 		GameScore a;
 		a = new BonusScore();
 		Assert.assertEquals(a.calculateScore(0,0),0);
 	}
 	
-	@test 
-	public void bonusDeberiaCalcularBien(){
+	@Test 
+	public void bonusDeberiaCalcularBien()  throws GameScoreExcepcion{
 		GameScore a;
-		a = new OriginalScore();
+		a = new BonusScore();
 		int b = a.calculateScore(1,1);
 		Assert.assertTrue(b==5);
 		
@@ -107,23 +108,23 @@ public class GameScoreTest{
 		Assert.assertTrue(b==95);
 		
 		b = a.calculateScore(6,2);
-		Assert.assertTrue(b==95);
+		Assert.assertTrue(b==50);
 	}
 	
 	
 	
 	
-	@test
-	public void powerScoreDeberiaDarInicio(){
+	@Test
+	public void powerScoreDeberiaDarInicio()  throws GameScoreExcepcion{
 		GameScore a;
 		a = new PowerScore();
 		Assert.assertEquals(a.calculateScore(0,0),0);
 	}
 	
-	@test 
-	public void powerDeberiaCalcularBien(){
+	@Test 
+	public void powerDeberiaCalcularBien()  throws GameScoreExcepcion{
 		GameScore a;
-		a = new OriginalScore();
+		a = new PowerScore();
 		int b = a.calculateScore(2,3);
 		Assert.assertTrue(b==6);
 		
@@ -134,10 +135,10 @@ public class GameScoreTest{
 		Assert.assertTrue(b==5);
 	}
 	
-	@test 
-	public void powerDeberiaDarMaximo(){
+	@Test 
+	public void powerDeberiaDarMaximo()  throws GameScoreExcepcion{
 		GameScore a;
-		a = new OriginalScore();
+		a = new PowerScore();
 		int b = a.calculateScore(4,0);
 		Assert.assertTrue(b==500);
 		
