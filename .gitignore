@@ -3,8 +3,8 @@ target/
 /nbproject/
 .idea/
 .settings/
-/bin/
-.classpath/
+bin/
+.classpath
 .project
 *.iml
 

@@ -1,8 +1,10 @@
+package hangman;
 
-package hangman.model;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import hangman.model.*;
 
 /**
  * Vamos a definir 4 clases de equivalencia:
