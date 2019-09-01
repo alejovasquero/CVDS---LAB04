@@ -22,6 +22,7 @@ import org.junit.Test;
  *	  2.3 Saca un puntaje entre 0 y 100 (2,3)(3,7)...
  *    2.4 Seca el puntaje maximo (4,0)... 
  */
+
 public class GameScoreTest{
 
 	@Test
