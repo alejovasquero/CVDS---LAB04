@@ -44,7 +44,6 @@ public class GUI {
     private HighScoreController highScoreController;
 
     // Use Factory method
-    @Inject
     public GUI(HangmanFactoryMethod factoryMethod) {
         this.language = factoryMethod.createLanguage();
         this.dictionary = factoryMethod.createDictionary();
@@ -53,6 +52,7 @@ public class GUI {
 
     
     // Use Guice constructor
+    @Inject
     public GUI(Language language, HangmanDictionary dictionary, HangmanPanel hangmanPanel){
         this.language = language;
         this.dictionary= dictionary;
